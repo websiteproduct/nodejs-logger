@@ -1,3 +1,3 @@
 # node-template-project
 
-## Стартовый шаблон node.js модуль 1
+## Стартовый шаблон node.js
