@@ -8,6 +8,7 @@
     "dev": "nodemon index",
     "lint": "eslint . --fix"
   },
+  "type": "module",
   "keywords": [
     "node",
     "app"
