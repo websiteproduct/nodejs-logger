@@ -1,3 +1,3 @@
-# node-template-project
+# NodeJS Logger
 
-## Стартовый шаблон node.js
+## Логгер, написанный на NodeJS
