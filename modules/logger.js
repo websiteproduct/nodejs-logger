@@ -1,6 +1,6 @@
 import { EventEmitter } from 'node:events';
 import fs from 'node:fs/promises';
-import { copyFileSync, truncateSync } from 'node:fs';
+import { copyFileSync, truncateSync, existsSync } from 'node:fs';
 
 export class Logger extends EventEmitter {
   constructor(filename, maxSize) {
@@ -27,6 +27,17 @@ export class Logger extends EventEmitter {
   async writeLog() {
     const message = this.logQueue.pop();
     let currentContent = '';
+
+    try {
+      if (!existsSync(this.logsFolder)) {
+        await fs.mkdir(this.logsFolder);
+      }
+    } catch (error) {
+      console.error(
+        'Произошла ошибка при чтении директории logs',
+        error.message,
+      );
+    }
 
     try {
       currentContent = await fs.readFile(
